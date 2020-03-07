@@ -1,103 +1,100 @@
 {
-    "taskDefinition": {
-        "taskDefinitionArn": "arn:aws:ecs:eu-central-1:161946843774:task-definition/strapi-latest:3",
-        "containerDefinitions": [
-            {
-                "name": "strapi-latest",
-                "image": "161946843774.dkr.ecr.eu-central-1.amazonaws.com/strapi:latest",
-                "cpu": 0,
-                "portMappings": [
-                    {
-                        "containerPort": 1337,
-                        "hostPort": 1337,
-                        "protocol": "tcp"
-                    }
-                ],
-                "essential": true,
-                "environment": [
-                    {
-                        "name": "DATABASE_PORT",
-                        "value": "3306"
-                    },
-                    {
-                        "name": "DATABASE_USERNAME",
-                        "value": "{{ssm:/strapi/database_username}}"
-                    },
-                    {
-                        "name": "DATABASE_NAME",
-                        "value": "{{ssm:/strapi/database_name}}"
-                    },
-                    {
-                        "name": "DATABASE_HOST",
-                        "value": "{{ssm:/strapi/database_host}}"
-                    },
-                    {
-                        "name": "DATABASE_PASSWORD",
-                        "value": "{{ssm:/strapi/database_password}}"
-                    },
-                    {
-                        "name": "DATABASE_PROVIDER",
-                        "value": "mysql"
-                    }
-                ],
-                "mountPoints": [],
-                "volumesFrom": [],
-                "startTimeout": 60,
-                "logConfiguration": {
-                    "logDriver": "awslogs",
-                    "options": {
-                        "awslogs-group": "/ecs/strapi-latest",
-                        "awslogs-region": "eu-central-1",
-                        "awslogs-stream-prefix": "ecs"
-                    }
+    "family": "strapi-latest",
+    "taskRoleArn": "arn:aws:iam::161946843774:role/ecsTaskExecutionRole",
+    "executionRoleArn": "arn:aws:iam::161946843774:role/ecsTaskExecutionRole",
+    "networkMode": "awsvpc",
+    "containerDefinitions": [
+        {
+            "name": "strapi-latest",
+            "image": "161946843774.dkr.ecr.eu-central-1.amazonaws.com/strapi:latest",
+            "cpu": 0,
+            "portMappings": [
+                {
+                    "containerPort": 1337,
+                    "hostPort": 1337,
+                    "protocol": "tcp"
+                }
+            ],
+            "essential": true,
+            "environment": [
+                {
+                    "name": "DATABASE_PORT",
+                    "value": "3306"
+                },
+                {
+                    "name": "DATABASE_USERNAME",
+                    "value": "{{ssm:/strapi/database_username}}"
+                },
+                {
+                    "name": "DATABASE_NAME",
+                    "value": "{{ssm:/strapi/database_name}}"
+                },
+                {
+                    "name": "DATABASE_HOST",
+                    "value": "{{ssm:/strapi/database_host}}"
+                },
+                {
+                    "name": "DATABASE_PASSWORD",
+                    "value": "{{ssm:/strapi/database_password}}"
+                },
+                {
+                    "name": "DATABASE_PROVIDER",
+                    "value": "mysql"
+                }
+            ],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "startTimeout": 60,
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/strapi-latest",
+                    "awslogs-region": "eu-central-1",
+                    "awslogs-stream-prefix": "ecs"
                 }
             }
-        ],
-        "family": "strapi-latest",
-        "taskRoleArn": "arn:aws:iam::161946843774:role/ecsTaskExecutionRole",
-        "executionRoleArn": "arn:aws:iam::161946843774:role/ecsTaskExecutionRole",
-        "networkMode": "awsvpc",
-        "revision": 3,
-        "volumes": [],
-        "status": "ACTIVE",
-        "requiresAttributes": [
-            {
-                "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
-            },
-            {
-                "name": "ecs.capability.execution-role-awslogs"
-            },
-            {
-                "name": "com.amazonaws.ecs.capability.ecr-auth"
-            },
-            {
-                "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
-            },
-            {
-                "name": "com.amazonaws.ecs.capability.task-iam-role"
-            },
-            {
-                "name": "ecs.capability.container-ordering"
-            },
-            {
-                "name": "ecs.capability.execution-role-ecr-pull"
-            },
-            {
-                "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
-            },
-            {
-                "name": "ecs.capability.task-eni"
-            }
-        ],
-        "placementConstraints": [],
-        "compatibilities": [
-            "EC2",
-            "FARGATE"
-        ],
-        "requiresCompatibilities": [
-            "FARGATE"
-        ],
-        "cpu": "256",
-        "memory": "512"
-    }
+        }
+    ],
+    "revision": 3,
+    "volumes": [],
+    "status": "ACTIVE",
+    "requiresAttributes": [
+        {
+            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+        },
+        {
+            "name": "ecs.capability.execution-role-awslogs"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.ecr-auth"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.task-iam-role"
+        },
+        {
+            "name": "ecs.capability.container-ordering"
+        },
+        {
+            "name": "ecs.capability.execution-role-ecr-pull"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+        },
+        {
+            "name": "ecs.capability.task-eni"
+        }
+    ],
+    "placementConstraints": [],
+    "compatibilities": [
+        "EC2",
+        "FARGATE"
+    ],
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "256",
+    "memory": "512"
 }
