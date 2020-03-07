@@ -22,28 +22,30 @@
                     "value": "3306"
                 },
                 {
-                    "name": "DATABASE_USERNAME",
-                    "valuefrom": "/strapi/database_username"
-                },
-                {
-                    "name": "DATABASE_NAME",
-                    "valuefrom": "/strapi/database_name"
-                },
-                {
-                    "name": "DATABASE_HOST",
-                    "valuefrom": "/strapi/database_host"
-                },
-                {
-                    "name": "DATABASE_PASSWORD",
-                    "valuefrom": "/strapi/database_password"
-                },
-                {
                     "name": "DATABASE_PROVIDER",
                     "value": "mysql"
                 }
             ],
             "mountPoints": [],
             "volumesFrom": [],
+            "secrets": [
+                {
+                    "name": "DATABASE_HOST",
+                    "valueFrom": "/strapi/database_host"
+                },
+                {
+                    "name": "DATABASE_NAME",
+                    "valueFrom": "/strapi/database_name"
+                },
+                {
+                    "name": "DATABASE_PASSWORD",
+                    "valueFrom": "/strapi/database_password"
+                },
+                {
+                    "name": "DATABASE_USERNAME",
+                    "valueFrom": "/strapi/database_username"
+                }
+            ],
             "startTimeout": 60,
             "logConfiguration": {
                 "logDriver": "awslogs",
