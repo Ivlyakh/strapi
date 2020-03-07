@@ -23,19 +23,19 @@
                 },
                 {
                     "name": "DATABASE_USERNAME",
-                    "value": "{{ssm:/strapi/database_username}}"
+                    "value": "/strapi/database_username"
                 },
                 {
                     "name": "DATABASE_NAME",
-                    "value": "{{ssm:/strapi/database_name}}"
+                    "value": "/strapi/database_name"
                 },
                 {
                     "name": "DATABASE_HOST",
-                    "value": "{{ssm:/strapi/database_host}}"
+                    "value": "/strapi/database_host"
                 },
                 {
                     "name": "DATABASE_PASSWORD",
-                    "value": "{{ssm:/strapi/database_password}}"
+                    "value": "/strapi/database_password"
                 },
                 {
                     "name": "DATABASE_PROVIDER",
